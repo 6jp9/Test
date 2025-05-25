@@ -1,0 +1,12 @@
+git init
+git remote add origin --link--
+git add . 
+git commit -m ' '
+git push origin main (or) git pull origin main --rebase
+
+-----------------------
+git clone --link--
+to clone a repository
+-------------------------------
+git remote set-url origin https://gitlab.com/KodeKloud/repository-1.git  
+to change remote repository
