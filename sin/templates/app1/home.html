@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        body {
+            background-image: url('{% static "app1/home.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            color: rgb(249, 226, 249);
+            font-family: Algerian, serif;
+            text-align: center;
+            font-size: 80px;
+            margin-top: 30px;
+        }
+
+        .box {
+            border: 2px solid lightgray;
+            width: 400px;
+            height: 300px;
+            margin: 20px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .form {
+            text-align: center;
+        }
+
+        .form input {
+            width: 90%;
+            height: 40px;
+            margin-top:40px;
+            margin-bottom: 15px;
+            padding: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn button, .btn a {
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: white;
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .bottom {
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .bottom div {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .bottom a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .help a {
+            color: lightgreen;
+        }
+
+        a:link { color: green; }
+        a:visited { color: pink; }
+        a:active { color: red; }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .box {
+                width: 90%;
+            }
+
+            .bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .bottom div {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>NIYA &#127807;</h1>
+
+    <div class="box">
+        <form class="form" id="loginForm" action="/signin/" method="GET">
+            <input type="email" placeholder="Enter your email" name="email" id="email" required aria-label="Email"><br/>
+            <input type="password" placeholder="Enter your password" name="pwd" id="password" required aria-label="Password"><br/>
+
+            <div class="btn">
+                <button type="submit">Signin</button>
+                <a href="/reg/" target="_blank">Signup</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="bottom">
+        <div class="bottom-txt1">
+            <b>Social</b><br/><br/>
+            <a href="https://www.instagram.com/_ck_94/" target="_blank">Instagram</a><br/><br/>
+            <a href="https://x.com/?lang=en-id" target="_blank">Twitter</a><br/><br/>
+            <a href="https://www.facebook.com/smilingstarKeerthiSuresh/" target="_blank">Facebook</a>
+        </div>
+        <div class="bottom-txt2">
+            <b>Help?</b><br/><br/>
+            <div class="help">
+                <a href="https://www.google.com/" target="_blank"><u>Help Center</u></a><br/><br/>
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank"><u>Contact us</u></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

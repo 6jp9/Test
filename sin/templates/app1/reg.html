@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>REGISTER</title>
+    <style>
+        body {
+            background-image: url("{% static 'app1/reg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            border: 2px solid lightgray;
+            width: 700px;
+            height: 650px;
+            margin: 40px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            color: white;
+            box-sizing: border-box;
+            overflow-y: auto;
+            border-radius: 8px;
+        }
+
+        .name,
+        .padding,
+        .skills,
+        .radio,
+        .file {
+            margin-left: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .name {
+            margin-top: 30px;
+        }
+
+        .dob,
+        .sk,
+        .rr,
+        .ff {
+            font-size: 20px;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .skills,
+        .radio,
+        .file {
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"] {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input::placeholder {
+            color: lightgray;
+        }
+
+        /* Style checkboxes and radio buttons */
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ddd;
+            /* modern browsers */
+            cursor: pointer;
+            margin-right: 6px;
+        }
+
+        label {
+            color: whitesmoke;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        button.bb {
+            margin-left: 250px;
+            font-size: 16px;
+            height: 40px;
+            width: 90px;
+            border: 1px solid rgb(66, 123, 30);
+            border-radius: 16px;
+            background-color: white;
+            color: rgb(15, 103, 25);
+            padding: 4px 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.bb:hover {
+            background-color: #ddd;
+        }
+
+        .bottom {
+            color: white;
+            height: 200px;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+        }
+
+        a {
+            color: lightblue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #fbeefb;
+            font-family: Algerian, cursive;
+            text-align: center;
+            font-size: 60px;
+            margin-top: 20px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NIYA 🌷</h1>
+
+    <div class="box">
+        <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="name">
+                <input type="text" name="first" placeholder="First Name" required />
+                <input type="text" name="middle" placeholder="Middle Name" />
+                <input type="text" name="last" placeholder="Last Name" required />
+            </div>
+            <br />
+
+            <div class="dob">
+                Date Of Birth:
+                <input type="date" name="dob" required />
+            </div>
+            <br />
+
+            <div class="padding">
+                <input type="email" name="email" placeholder="Enter your email" required />
+                <input type="tel" name="mobile" placeholder="Mobile Number" maxlength="10" required />
+            </div>
+            <br />
+
+            <div class="sk">Skills:</div>
+            <div class="skills">
+                <label><input type="checkbox" name="skills" value="Python" />Python</label>
+                <label><input type="checkbox" name="skills" value="CSS" />CSS</label>
+                <label><input type="checkbox" name="skills" value="HTML" />HTML</label>
+                <label><input type="checkbox" name="skills" value="Django" />Django</label>
+                <label><input type="checkbox" name="skills" value="JavaScript" />JavaScript</label>
+                <label><input type="checkbox" name="skills" value="Git" />Git</label>
+            </div>
+            <br />
+
+            <div class="rr">Gender:</div>
+            <div class="radio">
+                <label><input type="radio" name="gender" value="Male" />Male</label>
+                <label><input type="radio" name="gender" value="Female" />Female</label>
+            </div>
+            <br />
+
+            <div class="ff">Upload Resume:</div><br />
+            <div class="file">
+                <input type="file" name="resume" />
+            </div>
+            <br />
+
+            <button type="submit" class="bb">Submit</button>
+
+        </form>
+    </div>
+
+    <div class="bottom">
+        <div>
+            <b>Social</b><br /><br />
+            <a href="https://www.instagram.com/_ck_94/" target="_blank"
+                rel="noopener noreferrer">Instagram</a><br /><br />
+            <a href="https://x.com/?lang=en-id" target="_blank" rel="noopener noreferrer">Twitter</a><br /><br />
+            <a href="https://www.facebook.com/smilingstarKeerthiSuresh/" target="_blank"
+                rel="noopener noreferrer">Facebook</a>
+        </div>
+        <div>
+            <b>Help?</b><br /><br />
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Help Center</a><br /><br />
+            <a href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Contact us</a>
+        </div>
+    </div>
+</body>
+
+</html>
